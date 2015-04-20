@@ -11,7 +11,7 @@ class SmilingServer : public QObject
     Q_PROPERTY(int imagesCount READ imagesCount WRITE setImagesCount NOTIFY imagesCountChanged);
     Q_PROPERTY(QList<QObject*> images READ images NOTIFY imagesChanged);
 public:
-    explicit SmilingServer(const QString& _rootDirectory, QObject *parent = 0);
+    explicit SmilingServer(QObject *parent = 0);
     
 public:
   Q_INVOKABLE void updateImages();
@@ -23,6 +23,9 @@ signals:
   void imagesChanged();
   void imagesCountChanged();
 public slots:
+private:
+  void loadSmiles(const QString& _dir);
+  void loadSullen(const QString& _dir);
 private:
   int m_imagesCount;
   QList<QObject*> m_images;

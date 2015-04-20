@@ -2,23 +2,30 @@
 
 #include <QDebug>
 #include <QDir>
+#include <QStandardPaths>
 #include <QTime>
 
 #include "SmilingInfo.h"
 
-SmilingServer::SmilingServer(const QString& _rootDirectory, QObject *parent) :
-    QObject(parent)
+SmilingServer::SmilingServer(QObject *parent) :
+    QObject(parent), m_imagesCount(2)
 {
+  QStringList smiles  = QStandardPaths::locateAll(QStandardPaths::DataLocation, "SmilingFaces/smiles", QStandardPaths::LocateDirectory);
+  QStringList sullens = QStandardPaths::locateAll(QStandardPaths::DataLocation, "SmilingFaces/sullens", QStandardPaths::LocateDirectory);
+
+  foreach(const QString& d, smiles)
+  {
+    loadSmiles(d);
+  }
+  foreach(const QString& d, sullens)
+  {
+    loadSullen(d);
+  }
+
   qsrand(QTime::currentTime().msec());
-  foreach(QString file, QDir(_rootDirectory + "/smiles/").entryList(QDir::Files))
-  {
-    m_availableSmiles.append(new SmilingInfo(true, _rootDirectory + "/smiles/" + file));
-  }
-  foreach(QString file, QDir(_rootDirectory + "/sullens/").entryList(QDir::Files))
-  {
-    m_availableSullen.append(new SmilingInfo(false, _rootDirectory + "/sullens/" + file));
-  }
   qDebug() << "Found" << m_availableSmiles.size() << " smiles and " << m_availableSullen.size() << " sullens";
+
+  updateImages();
 }
 
 namespace
@@ -64,9 +71,26 @@ void SmilingServer::setImagesCount(int _count)
 {
   m_imagesCount = _count;
   emit(imagesCountChanged());
+  updateImages();
 }
 
 QList<QObject*> SmilingServer::images()
 {
   return m_images;
+}
+
+void SmilingServer::loadSmiles(const QString& _dir)
+{
+  foreach(QString file, QDir(_dir).entryList(QDir::Files))
+  {
+    m_availableSmiles.append(new SmilingInfo(true, "file:///" + _dir + "/" + file));
+  }
+}
+
+void SmilingServer::loadSullen(const QString& _dir)
+{
+  foreach(QString file, QDir(_dir).entryList(QDir::Files))
+  {
+    m_availableSullen.append(new SmilingInfo(false, "file:///" + _dir + "/" + file));
+  }
 }
