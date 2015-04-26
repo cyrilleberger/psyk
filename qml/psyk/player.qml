@@ -11,7 +11,12 @@ Item
   property alias muted:       player.muted
 
   onVisibleChanged: {
-    player.play()
+    if(visible)
+    {
+      player.play()
+    } else {
+      player.pause()
+    }
   }
 
   MediaPlayer

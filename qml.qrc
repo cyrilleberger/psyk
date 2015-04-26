@@ -11,5 +11,6 @@
         <file>qml/modules/SmilingFaces/main.qml</file>
         <file>qml/modules/SmilingFaces/qmldir</file>
         <file>qml/psyk/player.qml</file>
+        <file>qml/modules/Mindfull/Meditation.qml</file>
     </qresource>
 </RCC>
