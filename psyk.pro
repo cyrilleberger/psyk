@@ -2,8 +2,10 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-SOURCES += main.cpp Interface.cpp modules/SmilingFaces/SmilingInfo.cpp modules/SmilingFaces/SmilingServer.cpp
-HEADERS += Interface.h modules/SmilingFaces/SmilingInfo.h modules/SmilingFaces/SmilingServer.h
+SOURCES += main.cpp Interface.cpp modules/SmilingFaces/SmilingInfo.cpp modules/SmilingFaces/SmilingServer.cpp \
+    ExternalResource.cpp
+HEADERS += Interface.h modules/SmilingFaces/SmilingInfo.h modules/SmilingFaces/SmilingServer.h \
+    ExternalResource.h
 
 RESOURCES += qml.qrc
 

@@ -1,14 +1,15 @@
 <RCC>
     <qresource prefix="/">
-    <file>qml/main.qml</file>
-    <file>qml/psyk/activity.qml</file>
-    <file>qml/psyk/menu.qml</file>
-    <file>qml/psyk/qmldir</file>
-    <file>qml/main.qml</file>
-    <file>qml/modules/qmldir</file>
-    <file>qml/modules/Mindfull/qmldir</file>
-    <file>qml/modules/Mindfull/main.qml</file>
-    <file>qml/modules/SmilingFaces/main.qml</file>
-    <file>qml/modules/SmilingFaces/qmldir</file>
+        <file>qml/main.qml</file>
+        <file>qml/psyk/activity.qml</file>
+        <file>qml/psyk/menu.qml</file>
+        <file>qml/psyk/qmldir</file>
+        <file>qml/main.qml</file>
+        <file>qml/modules/qmldir</file>
+        <file>qml/modules/Mindfull/qmldir</file>
+        <file>qml/modules/Mindfull/main.qml</file>
+        <file>qml/modules/SmilingFaces/main.qml</file>
+        <file>qml/modules/SmilingFaces/qmldir</file>
+        <file>qml/psyk/player.qml</file>
     </qresource>
 </RCC>
