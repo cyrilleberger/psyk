@@ -1,6 +1,6 @@
 TEMPLATE = app
 
-QT += qml quick widgets
+QT += qml quick widgets multimedia
 
 SOURCES += main.cpp Interface.cpp modules/SmilingFaces/SmilingInfo.cpp modules/SmilingFaces/SmilingServer.cpp \
     ExternalResource.cpp
