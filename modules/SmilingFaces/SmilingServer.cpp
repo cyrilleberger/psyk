@@ -40,6 +40,7 @@ namespace
 
 void SmilingServer::updateImages()
 {
+  if(m_availableSmiles.isEmpty() or m_availableSullen.isEmpty()) return;
   QList<QObject*> newimages;
   newimages.append(randomFrom(m_availableSmiles));
   
